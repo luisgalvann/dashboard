@@ -1,0 +1,11 @@
+{% extends "partials/base.html" %}
+{% block title %}Logout{% endblock %}
+
+{% block content %}
+<div class="alert alert-success mt-3">You have been logged out !</div>
+<div class="card p-3 my-3 text-right pt-3">
+  <small class="text-muted">
+    <a href="{% url 'users-login' %}">Log In Again</a>
+  </small>
+</div>
+{% endblock content %}

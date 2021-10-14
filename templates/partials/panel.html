@@ -1,0 +1,44 @@
+{% load humanize %}
+<div class="row mt-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                Company KPIs
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <a class="text-decoration-none text-dark" href="">
+                            <div class="card my-card shadow">
+                                <div class="card-body text-center">
+                                    <h2>Sales</h2>
+                                    <h3>{{ total_sales.tons__sum|floatformat:0|intcomma }} Tons</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="text-decoration-none text-dark" href="">
+                            <div class="card my-card shadow">
+                                <div class="card-body text-center">
+                                    <h2>Countries</h2>
+                                    <h3>{{ total_countries.name__count }}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4">
+                        <a class="text-decoration-none text-dark" href="">
+                            <div class="card my-card shadow">
+                                <div class="card-body text-center">
+                                    <h2>Cities</h2>
+                                    <h3>{{ total_cities.name__count }}</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

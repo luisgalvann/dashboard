@@ -1,0 +1,75 @@
+{% extends "partials/base.html" %}
+{% block title %}Summary{% endblock %}
+{% load static %}
+
+{% block content %}
+{% include "partials/panel.html" %}
+<div class="row mt-5">
+    <div class="col-md-6">
+        <!-- A1 Chart Options -->
+        <div class="d-flex">
+            <div class="dropdown pr-3">
+                <button class="btn btn-primary dropdown-toggle" id="A1-country-btn" data-toggle="dropdown">
+                    Country
+                </button>
+                <div class="dropdown-menu" aria-labelledby="A1-country-btn">
+                    {% for country in countries %}
+                        <a class="dropdown-item" onclick="selectA1Country('{{ country }}')">{{ country }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" id="A1-year-btn" data-toggle="dropdown">
+                    Year
+                </button>
+                <div class="dropdown-menu" aria-labelledby="A1-year-btn">
+                    {% for year in years %}
+                        <a class="dropdown-item" onclick="selectA1Year('{{ year }}')">{{ year }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- A1 Chart -->
+        <div class="card bg-white mt-3 p-2">
+            <canvas id="A1-chart" width="400" height="300"></canvas>
+        </div>
+    </div>
+
+
+    <div class="col-md-6">
+        <!-- A2 Chart Options -->
+        <div class="d-flex">
+            <div class="dropdown pr-3">
+                <button class="btn btn-primary dropdown-toggle" id="A2-country-btn" data-toggle="dropdown">
+                    Country
+                </button>
+                <div class="dropdown-menu" aria-labelledby="A2-country-btn">
+                    {% for country in countries %}
+                        <a class="dropdown-item" onclick="selectA2Country('{{ country }}')">{{ country }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" id="A2-year-btn" data-toggle="dropdown">
+                    Year
+                </button>
+                <div class="dropdown-menu" aria-labelledby="r-year-btn">
+                    {% for year in years %}
+                        <a class="dropdown-item" onclick="selectA2Year('{{ year }}')">{{ year }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- A2 Chart -->
+        <div class="card bg-white mt-3 p-2">
+            <canvas id="A2-chart" width="400" height="300"></canvas>
+        </div>
+    </div>
+</div>
+
+<input id="site-url" value="{{ site_url }}" type="hidden" />
+<script src="{% static 'js/utils.js' %}"></script>
+<script src="{% static 'js/summary.js' %}"></script>
+{% endblock content %}

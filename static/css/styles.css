@@ -1,0 +1,14 @@
+body {
+  background-color: hsl(0, 0%, 95%);
+}
+
+.dropdown-menu > a:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #1266f1;
+}
+
+.account-img {
+  height: 125px;
+  width: 125px;
+}

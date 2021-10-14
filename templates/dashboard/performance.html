@@ -1,0 +1,48 @@
+{% extends "partials/base.html" %}
+{% block title %}Launch{% endblock %}
+{% load static %}
+
+{% block content %}
+<!-- B1 Chart and Table Options -->
+<div class="dropdown mt-3">
+    <button class="btn btn-primary dropdown-toggle" id="B1-year-btn" data-toggle="dropdown">
+        Year
+    </button>
+    <div class="dropdown-menu" aria-labelledby="B1-year-btn">
+        {% for year in years %}
+            <a class="dropdown-item" onclick="selectB1Year('{{ year }}')">{{ year }}</a>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- B1 Table -->
+<div class="row mt-3">
+    <div class="col-md-12">
+        <table class="table bg-white">
+            <thead class="bg-primary text-white">
+                <tr>
+                    <th scope="col">Product</th>
+                    {% for month in months %}
+                    <th scope="col">{{ month }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody id="B1-table">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- B1 Chart -->
+<div class="row my-4">
+    <div class="col-md-12">
+        <div class="card bg-white mt-3 p-2">
+            <canvas id="B1-chart" width="800" height="300"></canvas>
+        </div>
+    </div>
+</div>
+
+<input id="site-url" value="{{ site_url }}" type="hidden" />
+<script src="{% static 'js/utils.js' %}"></script>
+<script src="{% static 'js/performance.js' %}"></script>
+{% endblock content %}
